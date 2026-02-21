@@ -1,224 +1,510 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Yanti Natalia Malau | Quality Control & Project Management</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
-<body>
+:root {
+    --primary-color: #0f172a; /* Slate 900 - Dark Professional */
+    --secondary-color: #334155; /* Slate 700 */
+    --accent-color: #C5A059; /* Gold/Bronze for premium feel */
+    --text-primary: #1e293b; /* Slate 800 */
+    --text-secondary: #64748b; /* Slate 500 */
+    --bg-page: #f8fafc; /* Slate 50 */
+    --bg-sidebar: #1e293b; /* Slate 800 - Lighter than before */
+    --white: #ffffff;
+    --border-color: #e2e8f0;
+    --font-heading: 'Playfair Display', serif; /* Editorial Font */
+    --font-body: 'Roboto', sans-serif;
+}
 
-<div class="container">
-    <aside class="sidebar-container"> <!-- Wrapper for background -->
-        <div class="sidebar-content"> <!-- Sticky content -->
-            <div class="profile-section">
-                <div class="profile-image">
-                    <img src="yanti.png" alt="Yanti Natalia Malau">
-                </div>
-                <h1 class="profile-name">YANTI NATALIA MALAU</h1>
-                <span class="profile-role">Quality Control & Project Management Professional</span>
-            </div>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-            <div class="sidebar-section contact-section">
-                <h3 class="sidebar-title">Contact</h3>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <span>+62 853-6000-6986</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <a href="mailto:yanti.natalia@ymail.com">yanti.natalia@ymail.com</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <a href="mailto:yantimalau1@gmail.com">yantimalau1@gmail.com</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Badung, Bali, Indonesia</span>
-                </div>
-            </div>
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    line-height: 1.6;
+    font-size: 14px; 
+    -webkit-font-smoothing: antialiased;
+}
 
-            <div class="sidebar-section">
-                <h3 class="sidebar-title">Key Competencies</h3>
-                <div class="skills-list">
-                    <span class="skill-tag">Quality Control (QC)</span>
-                    <span class="skill-tag">Project Management</span>
-                    <span class="skill-tag">Budget Planning (RAB)</span>
-                    <span class="skill-tag">Site Supervision</span>
-                    <span class="skill-tag">Contractor Coordination</span>
-                    <span class="skill-tag">Material Inspection</span>
-                    <span class="skill-tag">MEP Knowledge</span>
-                </div>
-            </div>
+.container {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    min-height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--white);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
+}
 
-            <div class="sidebar-section">
-                <h3 class="sidebar-title">Technical Skills</h3>
-                <div class="skills-list">
-                    <span class="skill-tag">AutoCAD</span>
-                    <span class="skill-tag">Microsoft Office Suite</span>
-                    <span class="skill-tag">SupraCADD</span>
-                    <span class="skill-tag">Project Administration</span>
-                </div>
-            </div>
-        </div>
-    </aside>
+/* --- Sidebar Styling --- */
+.sidebar-container {
+    background-color: var(--bg-sidebar);
+    color: var(--white);
+    /* No padding here, padding goes to content */
+    display: flex;
+    flex-direction: column;
+}
 
-    <main class="main-content">
-        <!-- Professional Summary -->
-        <section class="section">
-            <h2 class="section-title"><i class="fas fa-user-tie"></i> Professional Profile</h2>
-            <div class="summary-text">
-                <p>
-                    Civil Engineering graduate (GPA 3.15) with over a decade of experience in the hospitality and construction sectors. 
-                    Specializing in Quality Control and Project Management, with proven expertise in coordinating between Owners and Contractors. 
-                    Highly skilled in monitoring project progress, ensuring compliance with technical specifications, managing BoQ (Bill of Quantities), and executing rigorous quality inspections. 
-                    A detail-oriented professional committed to delivering high-quality construction outcomes on time and within budget.
-                </p>
-            </div>
-        </section>
+.sidebar-content {
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    height: 100vh; /* Sticky viewport height */
+    position: sticky;
+    top: 0;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+.sidebar-content::-webkit-scrollbar { 
+    display: none; 
+}
 
-        <!-- Experience Section -->
-        <section class="section">
-            <h2 class="section-title"><i class="fas fa-briefcase"></i> Work Experience</h2>
+.profile-section {
+    text-align: center;
+}
 
-            <div class="experience-item">
-                <div class="item-header">
-                    <div>
-                        <div class="role-title">Site Supervisor</div>
-                        <div class="company-name">PT SAMADA GROUP</div>
-                    </div>
-                    <span class="period">Jan 2025 - Present</span>
-                </div>
-                <div class="project-details">
-                    <i class="fas fa-project-diagram"></i> <strong>Key Project:</strong> Low Rise Building, Villa Project (34 Units), Bali
-                </div>
-                <ul class="job-description">
-                    <li>Oversee project progress, quality, and costs to ensure alignment with architectural drawings and specifications.</li>
-                    <li>Coordinate with contractors regarding project schedules, working drawings, and construction methods.</li>
-                    <li>Prepare evaluation schedules and comprehensive reports on contractor performance.</li>
-                    <li>Monitor project expenditures (RAB) and report progress, material usage, and issues to the Owner.</li>
-                    <li>Ensure all deliverables are completed according to the project timeline and budget.</li>
-                </ul>
-            </div>
+.profile-image {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    overflow: hidden;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
 
-            <div class="experience-item">
-                <div class="item-header">
-                    <div>
-                        <div class="role-title">Civil Supervisor</div>
-                        <div class="company-name">PT Marianna Resort Samosir (Parna Raya Group)</div>
-                    </div>
-                    <span class="period">Aug 2021 - Dec 2023</span>
-                </div>
-                <div class="project-details">
-                     <i class="fas fa-building"></i> <strong>Key Project:</strong> High Rise Building, Marianna Resort Samosir, North Sumatra
-                </div>
-                <ul class="job-description">
-                    <li>Managed daily onsite coordination with contractors and supervised structural works.</li>
-                    <li>Conducted rigorous field checklists and inspections to ensure structural integrity.</li>
-                    <li>Verified onsite materials matched technical specifications and maintained concrete quality standards.</li>
-                    <li>Executed material testing and compiled detailed Quality Inspection reports.</li>
-                    <li>Ensured all work was executed in strict accordance with engineering drawings.</li>
-                </ul>
-            </div>
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
 
-            <div class="experience-item">
-                <div class="item-header">
-                    <div>
-                        <div class="role-title">Quality Control (QC)</div>
-                        <div class="company-name">PT Immanuel Muliajaya Konstruksi</div>
-                    </div>
-                    <span class="period">Jul 2018 - Aug 2019</span>
-                </div>
-                <div class="project-details">
-                    <i class="fas fa-map-marked-alt"></i> <strong>Key Project:</strong> Jember Town Square, East Java
-                </div>
-                <ul class="job-description">
-                    <li>Responsible for monitoring overall project quality and field supervision.</li>
-                    <li>Supervised material quality and usage efficiency.</li>
-                    <li>Analyzed working drawings and ensured attention to structural details.</li>
-                    <li>Produced daily field reports and quality assessments.</li>
-                </ul>
-            </div>
+.profile-name {
+    font-family: var(--font-heading);
+    font-size: 26px; /* Slightly larger for impact */
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    color: #e2e8f0; /* Softer white */
+}
 
-            <div class="experience-item">
-                <div class="item-header">
-                    <div>
-                        <div class="role-title">Site Coordinator (Pelaksana)</div>
-                        <div class="company-name">Santo Antonio Hospital Project</div>
-                    </div>
-                    <span class="period">Jul 2015 - Dec 2017</span>
-                </div>
-                <div class="project-details">
-                    <i class="fas fa-hospital"></i> <strong>Key Project:</strong> Santo Antonio Hospital, Baturaja, South Sumatra
-                </div>
-                <ul class="job-description">
-                    <li>Directed site foremen and supervised all project work items.</li>
-                    <li>Managed technical administration and drawing documentation.</li>
-                    <li>Conducted quality checks before and after execution of works.</li>
-                    <li>Reported project progress regularly to the foundation/stakeholders.</li>
-                </ul>
-            </div>
+.profile-role {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 11px;
+    color: var(--accent-color); /* Gold accent */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-top: 5px;
+}
 
-            <div class="experience-item">
-                <div class="item-header">
-                    <div>
-                        <div class="role-title">Technical Administrator</div>
-                        <div class="company-name">PT CITRA KARSA DINAMIKA</div>
-                    </div>
-                    <span class="period">Aug 2014 - Jul 2015</span>
-                </div>
-                <div class="project-details">
-                    <i class="fas fa-industry"></i> <strong>Key Project:</strong> Aqua Danone Factory, Binjai, North Sumatra
-                </div>
-                <ul class="job-description">
-                    <li>Managed Project Financial Administration (Requests and Expenditures).</li>
-                    <li>Handled Purchase Orders and archiving of field drawings.</li>
-                    <li>Processed project documents (Official Reports, partial wages, Foreman Opname, etc.).</li>
-                </ul>
-            </div>
+.sidebar-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.08); /* Fainter border */
+    padding-top: 25px;
+}
 
-            <div class="experience-item">
-                <div class="item-header">
-                    <div>
-                        <div class="role-title">Estimator Staff</div>
-                        <div class="company-name">PT SURYA PANCA LESTARI</div>
-                    </div>
-                    <span class="period">Feb 2014 - Apr 2014</span>
-                </div>
-                <ul class="job-description">
-                    <li>Designed light steel roof frames using SupraCADD software.</li>
-                    <li>Calculated material requirements for light steel roofing projects.</li>
-                </ul>
-            </div>
-        </section>
+.sidebar-title {
+    font-family: var(--font-heading);
+    font-size: 18px; /* Serif */
+    text-transform: capitalize; /* More elegant than uppercase */
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+    color: #f1f5f9;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px solid var(--accent-color); /* Underline style */
+    padding-bottom: 5px;
+    width: fit-content;
+}
 
-        <!-- Education Section -->
-        <section class="section">
-            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
-            <div class="education-item">
-                <div class="item-header">
-                    <div>
-                        <div class="role-title">Bachelor of Applied Science in Civil Engineering</div>
-                        <div class="company-name">Politeknik Negeri Medan</div>
-                    </div>
-                    <span class="period">2009 - 2013</span>
-                </div>
-                <div class="project-details">
-                    <strong>GPA:</strong> 3.15 / 4.00
-                </div>
-            </div>
-        </section>
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    font-size: 13px;
+    color: #cbd5e1; /* Slate 300 */
+}
 
-        <footer class="footer">
-            <p>I certify that all information available in this curriculum vitae is true and accurate.</p>
-            <p>&copy; 2026 Yanti Natalia Malau. All Rights Reserved.</p>
-        </footer>
-    </main>
-</div>
+.contact-item i {
+    color: var(--accent-color);
+    width: 20px;
+    text-align: center;
+}
 
-</body>
-</html>
+.contact-item a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.contact-item a:hover {
+    color: var(--white);
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-tag {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #e2e8f0;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.skill-tag:hover {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+/* --- Main Content Styling --- */
+.main-content {
+    background-color: var(--white);
+    padding: 70px 60px; /* More white space for pro feel */
+}
+
+.section {
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    color: var(--primary-color); 
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #cbd5e1; /* Thinner line */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-transform: none; /* Remove aggressive UPPERCASE */
+    font-weight: 700;
+    letter-spacing: -0.5px; /* Tighter letter spacing */
+}
+
+.section-title i {
+    color: var(--accent-color);
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+.summary-text p {
+    color: var(--text-primary);
+    font-size: 15px;
+    line-height: 1.9; /* Improved readability */
+    text-align: justify;
+    margin-bottom: 0;
+}
+
+.experience-item {
+    margin-bottom: 40px;
+    position: relative;
+    padding-left: 0; /* Remove old border indentation */
+    border-left: none; /* Clean layout */
+}
+
+.experience-item:hover {
+    /* Subtle interaction */
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline; /* Better alignment */
+    margin-bottom: 8px;
+    border-bottom: 1px dotted #e2e8f0; /* Guide line */
+    padding-bottom: 8px;
+}
+
+.role-title {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1.3;
+}
+
+.company-name {
+    font-size: 14px;
+    color: var(--secondary-color);
+    font-weight: 500;
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.period {
+    font-size: 13px;
+    color: var(--text-secondary);
+    background: transparent; /* Remove badge style */
+    padding: 0;
+    font-weight: 600;
+    font-style: italic; /* Elegant touch */
+}
+
+.project-details {
+    background-color: transparent; /* Remove box */
+    padding: 5px 0 15px 0;
+    font-size: 14px;
+    color: #475569;
+    margin-bottom: 10px;
+    border-left: none;
+    font-style: italic;
+    border-bottom: none;
+}
+.project-details strong {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.job-description {
+    list-style-type: none;
+    margin-top: 5px;
+}
+
+.job-description li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.job-description li::before {
+    content: "\2022"; /* Bullet Unicode */
+    color: var(--accent-color); /* Gold bullet */
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.education-item {
+    padding-left: 0;
+    border-left: none;
+}
+
+.footer {
+    border-top: 1px solid var(--border-color);
+    margin-top: 60px;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+    .container {
+        /* Keep grid but adjust ratio for tablet/mobile */
+        grid-template-columns: 200px 1fr; 
+        max-width: 100%;
+        box-shadow: none;
+    }
+    
+    .sidebar-content {
+        padding: 30px 15px;
+    }
+
+    .main-content {
+        padding: 30px 20px;
+    }
+}
+
+/* Mobile Specific - Compact Side-by-Side */
+@media (max-width: 600px) {
+    .container {
+        display: block; /* Disable grid on mobile to handle fixed positioning manually if needed, OR keep grid but fix sidebar */
+        /* Actually, let's keep grid but force the sidebar logic differently */
+        display: grid;
+        grid-template-columns: 35% 65%; 
+        min-height: auto;
+    }
+
+    .sidebar-container {
+        /* This is the grid item. It inherently stretches. */
+        height: 100%; 
+    }
+
+    .sidebar-content {
+        /* STICKY CONFIGURATION */
+        position: fixed; /* Force it to stay put on screen */
+        width: 35%; /* Match column width */
+        top: 0;
+        left: 0;
+        bottom: 0; /* Full height */
+        height: 100vh;
+        z-index: 100; /* Ensure it stays on top/visible */
+        
+        padding: 15px 5px;
+        gap: 12px;
+        overflow-y: auto; /* Scroll inside sidebar if needed */
+        background-color: var(--bg-sidebar); /* Ensure bg covers */
+    }
+
+    /* Main Content needs to offset because sidebar is fixed now? 
+       No, if we keep grid, the first column (35%) is effectively empty if we fixed-position the child.
+       BUT, if we fixed position the child, it breaks out of flow. 
+       So the 35% grid column will collapse or be empty.
+       Correct approach for "Locked Sidebar" on Grid:
+       1. Keep Grid.
+       2. Sidebar column is 35%.
+       3. Sidebar content is fixed width 35vw.
+    */
+    .sidebar-content {
+        position: sticky; /* Sticky is safest for grid */
+        top: 0;
+        height: 100vh;
+        overflow-y: hidden; /* Lock scroll inside sidebar unless necessary set to auto */
+    }
+    
+    /* User said "gerak sidebar nya" (sidebar moves). 
+       This usually means it scrolls UP and disappears.
+       Sticky should fix this. 
+       If it's already sticky and "moving", maybe flex alignment is wrong.
+    */
+    
+    .sidebar-content {
+        position: sticky;
+        top: 0;
+        align-self: start; /* CRITICAL for grid sticky */
+        height: 100vh;
+        overflow-y: auto;
+    }
+
+    .profile-image {
+        width: 50px; /* Smaller image */
+        height: 50px;
+        border-width: 1px;
+        margin-bottom: 5px;
+    }
+
+    .profile-name {
+        font-size: 11px; /* Much smaller to prevent cutoff */
+        margin-bottom: 2px;
+        line-height: 1.1;
+    }
+    
+    .profile-role {
+        font-size: 7px;
+        line-height: 1.1;
+        display: block;
+    }
+
+    .sidebar-section {
+        padding-top: 10px;
+        margin-top: 5px;
+    }
+
+    .sidebar-title {
+        font-size: 9px;
+        margin-bottom: 6px;
+        border-bottom-width: 1px;
+        padding-bottom: 2px;
+    }
+
+    .contact-item {
+        gap: 4px;
+        margin-bottom: 6px;
+        font-size: 8px;
+    }
+
+    .contact-item i {
+        font-size: 8px;
+        margin-top: 2px; 
+    }
+
+    .skill-tag {
+        font-size: 7px; /* Tiny skills */
+        padding: 1px 0;
+        margin-bottom: 2px;
+    }
+
+    /* Main Content Compact */
+    .main-content {
+        padding: 15px 10px; /* More space for text */
+    }
+    }
+
+    .section {
+        margin-bottom: 30px;
+        padding-bottom: 0;
+        border-bottom: none; /* Cleaner */
+    }
+    
+    .section-title {
+        font-size: 16px;
+        margin-bottom: 15px;
+        padding-bottom: 5px;
+    }
+
+    .summary-text p {
+        font-size: 10px;
+        line-height: 1.6;
+    }
+
+    /* Experience Items */
+    .experience-item {
+        margin-bottom: 25px;
+    }
+
+    .item-header {
+        flex-direction: column;
+        gap: 2px;
+        margin-bottom: 4px;
+        border-bottom: none; /* Too cluttered on mobile */
+    }
+
+    .role-title {
+        font-size: 13px;
+    }
+
+    .company-name {
+        font-size: 10px;
+    }
+
+    .period {
+        font-size: 9px;
+        margin-top: 0;
+        font-style: italic;
+    }
+
+    .project-details {
+        padding: 0;
+        font-size: 10px;
+        margin-bottom: 6px;
+        line-height: 1.4;
+    }
+    
+    .job-description li {
+        font-size: 10px;
+        margin-bottom: 5px;
+        padding-left: 12px; /* Less indentation */
+    }
+    
+    .job-description li::before {
+        font-size: 12px; 
+        left: 0;
+        top: 0;
+    }
+
+    .footer {
+        margin-top: 20px;
+        font-size: 8px;
+    }
 
