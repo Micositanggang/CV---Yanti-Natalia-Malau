@@ -386,17 +386,27 @@ body {
 
     .sidebar-content {
         /* Sticky sidebar logic for mobile */
-        position: sticky; 
+        position: fixed; /* Changed from sticky to fixed to ensure full height access */
         top: 0;
+        left: 0;
         height: 100vh;
-        width: 100%;
+        width: 110px; /* Match grid column width */
         padding: 15px 5px;
         gap: 15px;
-        overflow-y: auto;
+        overflow-y: auto; /* Enable scrolling within sidebar independently */
         display: flex;
         flex-direction: column;
-        align-items: center; /* Center content in sidebar */
+        align-items: center; 
         text-align: center;
+        z-index: 100;
+        background-color: var(--bg-sidebar);
+        /* Hide scrollbar for cleaner look */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    
+    .sidebar-content::-webkit-scrollbar {
+        display: none;
     }
 
     .profile-image {
