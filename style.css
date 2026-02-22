@@ -1,0 +1,573 @@
+:root {
+    --primary-color: #0f172a; /* Slate 900 - Dark Professional */
+    --secondary-color: #334155; /* Slate 700 */
+    --accent-color: #C5A059; /* Gold/Bronze for premium feel */
+    --text-primary: #1e293b; /* Slate 800 */
+    --text-secondary: #64748b; /* Slate 500 */
+    --bg-page: #f8fafc; /* Slate 50 */
+    --bg-sidebar: #1e293b; /* Slate 800 - Lighter than before */
+    --white: #ffffff;
+    --border-color: #e2e8f0;
+    --font-heading: 'Playfair Display', serif; /* Editorial Font */
+    --font-body: 'Roboto', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    line-height: 1.6;
+    font-size: 14px; 
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    min-height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--white);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Sidebar Styling --- */
+.sidebar-container {
+    background-color: var(--bg-sidebar);
+    color: var(--white);
+    /* No padding here, padding goes to content */
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-content {
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    height: 100vh; /* Sticky viewport height */
+    position: sticky;
+    top: 0;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+.sidebar-content::-webkit-scrollbar { 
+    display: none; 
+}
+
+.profile-section {
+    text-align: center;
+}
+
+.profile-image {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    overflow: hidden;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+}
+
+.profile-name {
+    font-family: var(--font-heading);
+    font-size: 26px; /* Slightly larger for impact */
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    color: #e2e8f0; /* Softer white */
+}
+
+.profile-role {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 11px;
+    color: var(--accent-color); /* Gold accent */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.sidebar-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.08); /* Fainter border */
+    padding-top: 25px;
+}
+
+.sidebar-title {
+    font-family: var(--font-heading);
+    font-size: 18px; /* Serif */
+    text-transform: capitalize; /* More elegant than uppercase */
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+    color: #f1f5f9;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px solid var(--accent-color); /* Underline style */
+    padding-bottom: 5px;
+    width: fit-content;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    font-size: 13px;
+    color: #cbd5e1; /* Slate 300 */
+}
+
+.contact-item i {
+    color: var(--accent-color);
+    width: 20px;
+    text-align: center;
+}
+
+.contact-item a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.contact-item a:hover {
+    color: var(--white);
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-tag {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #e2e8f0;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.skill-tag:hover {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+/* --- Language Skills --- */
+.language-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.language-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.lang-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #e2e8f0;
+    font-weight: 500;
+}
+
+.lang-level {
+    font-size: 11px;
+    color: var(--accent-color);
+    font-style: italic;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--accent-color);
+    border-radius: 3px;
+}
+
+/* --- Main Content Styling --- */
+.main-content {
+    background-color: var(--white);
+    padding: 70px 60px; /* More white space for pro feel */
+}
+
+.section {
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    color: var(--primary-color); 
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #cbd5e1; /* Thinner line */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-transform: none; /* Remove aggressive UPPERCASE */
+    font-weight: 700;
+    letter-spacing: -0.5px; /* Tighter letter spacing */
+}
+
+.section-title i {
+    color: var(--accent-color);
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+.summary-text p {
+    color: var(--text-primary);
+    font-size: 15px;
+    line-height: 1.9; /* Improved readability */
+    text-align: justify;
+    margin-bottom: 0;
+}
+
+.experience-item {
+    margin-bottom: 40px;
+    position: relative;
+    padding-left: 0; /* Remove old border indentation */
+    border-left: none; /* Clean layout */
+}
+
+.experience-item:hover {
+    /* Subtle interaction */
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline; /* Better alignment */
+    margin-bottom: 8px;
+    border-bottom: 1px dotted #e2e8f0; /* Guide line */
+    padding-bottom: 8px;
+}
+
+.role-title {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1.3;
+}
+
+.company-name {
+    font-size: 14px;
+    color: var(--secondary-color);
+    font-weight: 500;
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.period {
+    font-size: 13px;
+    color: var(--text-secondary);
+    background: transparent; /* Remove badge style */
+    padding: 0;
+    font-weight: 600;
+    font-style: italic; /* Elegant touch */
+}
+
+.project-details {
+    background-color: transparent; /* Remove box */
+    padding: 5px 0 15px 0;
+    font-size: 14px;
+    color: #475569;
+    margin-bottom: 10px;
+    border-left: none;
+    font-style: italic;
+    border-bottom: none;
+}
+.project-details strong {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.job-description {
+    list-style-type: none;
+    margin-top: 5px;
+}
+
+.job-description li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.job-description li::before {
+    content: "\2022"; /* Bullet Unicode */
+    color: var(--accent-color); /* Gold bullet */
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.education-item {
+    padding-left: 0;
+    border-left: none;
+}
+
+.footer {
+    border-top: 1px solid var(--border-color);
+    margin-top: 60px;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+    .container {
+        /* Keep grid but adjust ratio for tablet/mobile */
+        grid-template-columns: 200px 1fr; 
+        max-width: 100%;
+        box-shadow: none;
+    }
+    
+    .sidebar-content {
+        padding: 30px 15px;
+    }
+
+    .main-content {
+        padding: 30px 20px;
+    }
+}
+
+/* Mobile Specific - Compact Side-by-Side (OPTIMIZED) */
+@media (max-width: 600px) {
+    .container {
+        display: grid;
+        grid-template-columns: 110px 1fr; /* Fixed width sidebar for stability */
+        min-height: auto;
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .sidebar-container {
+        background-color: var(--bg-sidebar);
+        height: 100%; 
+        position: relative;
+    }
+
+    .sidebar-content {
+        /* Sticky sidebar logic for mobile */
+        position: sticky; 
+        top: 0;
+        height: 100vh;
+        width: 100%;
+        padding: 15px 5px;
+        gap: 15px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center content in sidebar */
+        text-align: center;
+    }
+
+    .profile-image {
+        width: 60px; 
+        height: 60px;
+        border-width: 2px;
+        margin-bottom: 8px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .profile-name {
+        font-size: 10px; 
+        line-height: 1.2;
+        margin-bottom: 2px;
+        word-wrap: break-word; /* Prevent overflow */
+    }
+    
+    .profile-role {
+        font-size: 6px;
+        line-height: 1.1;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .sidebar-section {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 10px;
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    .sidebar-title {
+        font-size: 8px;
+        margin-bottom: 8px;
+        justify-content: center; /* Center titles */
+        padding-bottom: 2px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .contact-item {
+        flex-direction: row; 
+        align-items: center; 
+        justify-content: flex-start;
+        gap: 4px; 
+        margin-bottom: 6px;
+        font-size: 6.5px; /* Slightly smaller to fit email */
+        text-align: left;
+        width: 100%;
+        white-space: nowrap; /* Force single line */
+        overflow: hidden; /* Prevent breaking layout */
+        text-overflow: ellipsis; /* Add ... if still too long */
+    }
+
+    .contact-item i {
+        font-size: 8px;
+        margin-bottom: 0; 
+        min-width: 8px; 
+        text-align: center;
+        flex-shrink: 0; /* Prevent icon from shrinking */
+    }
+    
+    .contact-item span, .contact-item a {
+        word-break: break-all; /* Break long emails */
+    }
+
+    .skills-list {
+        justify-content: center;
+        gap: 3px;
+    }
+
+    .skill-tag {
+        font-size: 6px; 
+        padding: 2px 4px;
+        margin-bottom: 2px;
+    }
+
+    /* Mobile Language Adjustments */
+    .language-list {
+        gap: 8px;
+        width: 100%;
+        padding: 0 5px;
+    }
+    
+    .lang-header {
+        font-size: 8px;
+    }
+
+    .lang-level {
+        font-size: 6px;
+    }
+
+    .progress-bar {
+        height: 4px;
+    }
+
+    /* Main Content Compact */
+    .main-content {
+        padding: 20px 10px; 
+        background-color: var(--white);
+    }
+
+    .section {
+        margin-bottom: 25px;
+    }
+    
+    .section-title {
+        font-size: 14px;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        text-align: left; /* Keep main content left-aligned */
+        justify-content: flex-start;
+    }
+    
+    .section-title i {
+        font-size: 12px;
+    }
+
+    .summary-text p {
+        font-size: 9px;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+    /* Experience Items */
+    .experience-item {
+        margin-bottom: 20px;
+    }
+
+    .item-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        margin-bottom: 5px;
+    }
+
+    .role-title {
+        font-size: 11px;
+    }
+
+    .company-name {
+        font-size: 9px;
+    }
+
+    .period {
+        font-size: 8px;
+    }
+
+    .project-details {
+        font-size: 8px;
+        margin-bottom: 5px;
+    }
+    
+    .job-description li {
+        font-size: 9px;
+        margin-bottom: 4px;
+        padding-left: 12px; 
+        line-height: 1.4;
+    }
+    
+    .job-description li::before {
+        font-size: 10px; 
+        left: 0;
+        top: 0;
+    }
+
+    .footer {
+        margin-top: 15px;
+        font-size: 7px;
+        padding-top: 10px;
+    }
+}
+
