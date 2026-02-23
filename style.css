@@ -399,6 +399,14 @@ body {
     .main-content {
         padding: 30px 20px;
     }
+
+    /* Compact Button for Tablet */
+    .download-btn {
+        width: 90%;
+        padding: 8px 16px;
+        font-size: 12px;
+        gap: 8px;
+    }
 }
 
 /* Mobile Specific - Compact Side-by-Side (OPTIMIZED) */
@@ -409,6 +417,17 @@ body {
         min-height: auto;
         width: 100%;
         overflow-x: hidden;
+    }
+
+    /* Compact Button for Mobile */
+    .download-btn {
+        width: 100%;
+        margin-top: 10px; 
+        padding: 6px 12px;
+        font-size: 10px;
+        gap: 5px;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Lighter shadow */
     }
 
     .sidebar-container {
