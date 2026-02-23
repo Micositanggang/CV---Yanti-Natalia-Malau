@@ -215,7 +215,7 @@ body {
 /* --- Main Content Styling --- */
 .main-content {
     background-color: var(--white);
-    padding: 70px 60px; /* More white space for pro feel */
+    padding: 40px 60px; /* Adjusted top padding to match sidebar (was 70px) */
 }
 
 .section {
