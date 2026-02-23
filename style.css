@@ -350,6 +350,39 @@ body {
     color: var(--text-secondary);
 }
 
+/* --- Download Button --- */
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    margin-top: 15px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 80%; /* Consistent width */
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.download-btn:hover {
+    background-color: #e2b969; /* Slightly lighter gold */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.download-btn:active {
+    transform: translateY(0);
+}
+
 /* --- Responsive Design --- */
 @media (max-width: 900px) {
     .container {
@@ -581,3 +614,113 @@ body {
     }
 }
 
+/* --- Print Styles --- */
+@media print {
+    @page { 
+        margin: 0; /* Kita akan atur margin lewat padding body agar background sidebar aman */
+        size: A4;
+    }
+
+    body {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        background-color: var(--white);
+        margin: 0;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: 290px 1fr !important; /* KEMBALIKAN DUPLIKAT WEB */
+        width: 100%;
+        min-height: 100vh;
+        height: 100%;
+        overflow: visible;
+    }
+
+    /* --- SIDEBAR (Kiri) --- */
+    .sidebar-container {
+        background-color: var(--bg-sidebar) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        height: 100%; 
+        min-height: 100vh;
+        border-right: 1px solid #333;
+    }
+
+    .sidebar-content {
+        position: relative !important;
+        top: 0 !important;
+        /* Padding ini yang memberi jarak "Margin" saat diprint */
+        padding: 40px 30px !important; 
+        height: auto !important;
+        overflow: visible !important;
+        gap: 25px;
+    }
+
+    .sidebar-section {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        margin-bottom: 25px;
+    }
+
+    /* --- MAIN CONTENT (Kanan) --- */
+    .main-content {
+        /* Padding atas 50px memberi jarak aman di Halaman 1 */
+        padding: 50px 40px !important;
+        display: block;
+    }
+
+    /* TRIK JARAK HALAMAN BARU: 
+       Kita gunakan break-inside: avoid pada Section Title dan Experience Item.
+       Lalu kita beri margin-top yang cukup besar pada Title.
+       Jika pindah halaman, margin ini akan memberi jarak. */
+
+    .section {
+        display: block;
+        page-break-inside: auto;
+        break-inside: auto;
+        margin-bottom: 40px;
+    }
+
+    .section-title {
+        page-break-after: avoid; 
+        break-after: avoid;
+        /* Margin atas ini akan jadi bumper ketika judul jatuh di awal halaman baru */
+        margin-top: 40px; 
+        padding-top: 10px;
+    }
+    
+    /* Reset margin untuk judul pertama di halaman 1 agar tidak turun banget */
+    .section:first-child .section-title {
+        margin-top: 0;
+    }
+
+    .experience-item {
+        break-inside: avoid; /* Satu item job tidak boleh terpotong */
+        page-break-inside: avoid;
+        margin-bottom: 30px;
+        /* Padding atas ini menjaga teks tidak nempel ke atas kertas jika item ini pindah ke halaman baru */
+        padding-top: 20px; 
+        margin-top: 0;
+    }
+
+    /* Font Size Penyesuaian Sedikit agar Muat */
+    body, p, li, .period, .company-name {
+        font-size: 10pt; /* Ubah ke 10 atau 11pt sesuai selera, standar 10-11 aman */
+    }
+
+    h1, h2, h3 {
+        break-after: avoid;
+        page-break-after: avoid;
+    }
+
+    /* Sembunyikan tombol download */
+    .download-btn {
+        display: none !important;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit !important;
+    }
+}
